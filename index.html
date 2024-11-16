@@ -129,17 +129,17 @@
             padding: 6rem 0;
         }
 
-        .services {
+        .services, .pricing {
             background-color: #fff;
         }
 
-        .services-grid {
+        .services-grid, .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .service-item {
+        .service-item, .pricing-item {
             background-color: var(--bg-color);
             padding: 2rem;
             border-radius: 15px;
@@ -147,16 +147,16 @@
             transition: transform 0.3s ease;
         }
 
-        .service-item:hover {
+        .service-item:hover, .pricing-item:hover {
             transform: translateY(-10px);
         }
 
-        .service-item h3 {
+        .service-item h3, .pricing-item h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
-        .service-item ul {
+        .service-item ul, .pricing-item ul {
             list-style-position: inside;
             margin-top: 1rem;
         }
@@ -205,7 +205,6 @@
             border-color: var(--primary-color);
             outline: none;
         }
-
 
         footer {
             background-color: var(--secondary-color);
@@ -350,42 +349,52 @@
             </div>
         </section>
 
-        <section id="pricing" class="container">
-            <h2>Pricing & Project Scope</h2>
-            <div class="tabs">
-                <button class="tab active" onclick="openPricingTab('grassroots')">Grassroots</button>
-                <button class="tab" onclick="openPricingTab('enterprise')">Enterprise</button>
-                <button class="tab" onclick="openPricingTab('custom')">Custom Projects</button>
-            </div>
-            <div id="grassroots-pricing" class="tab-content active">
-                <h3>Grassroots Business Solutions</h3>
-                <p>For businesses looking to leverage technology for growth, we offer a unique 15% revenue-sharing model. This allows us to bring you under the Sletcher Systems umbrella, providing our expertise and resources to help your business thrive.</p>
-                <ul>
-                    <li>No upfront costs</li>
-                    <li>Full access to our technology stack</li>
-                    <li>Ongoing support and optimization</li>
-                    <li>2-week free trial period</li>
-                </ul>
-            </div>
-            <div id="enterprise-pricing" class="tab-content">
-                <h3>Enterprise Solutions</h3>
-                <p>For established businesses and complex projects, we offer transparent pricing based on project scope and requirements.</p>
-                <ul>
-                    <li>$30 per hour base rate</li>
-                    <li>Project durations from hours to 3 months</li>
-                    <li>Dedicated project management</li>
-                    <li>Comprehensive support package</li>
-                </ul>
-            </div>
-            <div id="custom-pricing" class="tab-content">
-                <h3>Custom Projects & PoC</h3>
-                <p>For businesses exploring innovative solutions or requiring proof of concept development, we offer flexible engagement models.</p>
-                <ul>
-                    <li>Rapid prototyping</li>
-                    <li>Flexible payment terms</li>
-                    <li>Technology consultation</li>
-                    <li>Scalable solutions</li>
-                </ul>
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2>Pricing & Project Scope</h2>
+                <div class="tabs">
+                    <button class="tab active" onclick="openPricingTab('grassroots')">Grassroots</button>
+                    <button class="tab" onclick="openPricingTab('enterprise')">Enterprise</button>
+                    <button class="tab" onclick="openPricingTab('custom')">Custom Projects</button>
+                </div>
+                <div class="pricing-grid">
+                    <div id="grassroots-pricing" class="tab-content active">
+                        <div class="pricing-item">
+                            <h3>Grassroots Business Solutions</h3>
+                            <p>For businesses looking to leverage technology for growth, we offer a unique 15% revenue-sharing model. This allows us to bring you under the Sletcher Systems umbrella, providing our expertise and resources to help your business thrive.</p>
+                            <ul>
+                                <li>No upfront costs</li>
+                                <li>Full access to our technology stack</li>
+                                <li>Ongoing support and optimization</li>
+                                <li>2-week free trial period</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="enterprise-pricing" class="tab-content">
+                        <div class="pricing-item">
+                            <h3>Enterprise Solutions</h3>
+                            <p>For established businesses and complex projects, we offer transparent pricing based on project scope and requirements.</p>
+                            <ul>
+                                <li>$30 per hour base rate</li>
+                                <li>Project durations from hours to 3 months</li>
+                                <li>Dedicated project management</li>
+                                <li>Comprehensive support package</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="custom-pricing" class="tab-content">
+                        <div class="pricing-item">
+                            <h3>Custom Projects & PoC</h3>
+                            <p>For businesses exploring innovative solutions or requiring proof of concept development, we offer flexible engagement models.</p>
+                            <ul>
+                                <li>Rapid prototyping</li>
+                                <li>Flexible payment terms</li>
+                                <li>Technology consultation</li>
+                                <li>Scalable solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
