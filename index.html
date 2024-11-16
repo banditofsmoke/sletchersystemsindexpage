@@ -190,6 +190,23 @@
             height: 150px;
         }
 
+        .contact-form select {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23333"/></svg>') no-repeat right 1rem center/12px 6px;
+        }
+
+        .contact-form select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+
         footer {
             background-color: var(--secondary-color);
             color: #fff;
@@ -378,6 +395,18 @@
             <form action="https://formspree.io/f/mpwzrvlo" method="POST" class="contact-form">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
+                <select name="service" required>
+                    <option value="">Select Service Type</option>
+                    <option value="grassroots">Grassroots Impact</option>
+                    <option value="ai">AI & Machine Learning</option>
+                    <option value="innovation">Innovation Lab</option>
+                </select>
+                <select name="contact_method" required>
+                    <option value="">Preferred Contact Method</option>
+                    <option value="local_call">Local Call</option>
+                    <option value="inhouse_meeting">In-house Meeting</option>
+                    <option value="email">Email</option>
+                </select>
                 <textarea name="message" placeholder="Tell us about your vision" required></textarea>
                 <button type="submit" class="btn">Send Message</button>
             </form>
