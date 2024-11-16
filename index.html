@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sletcher Systems - Transforming South Africa Through Technology</title>
+    <style>
+        :root {
+            --primary-color: #009B77;  /* South African green */
+            --secondary-color: #222;
+            --accent-color: #FFB90F;   /* Warm African sun */
+            --text-color: #333;
+            --bg-color: #f8f8f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                       url('https://source.unsplash.com/random/1600x900/?south-africa-technology');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .services {
+            background-color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-item {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-item ul {
+            list-style-position: inside;
+            margin-top: 1rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Sletcher Systems</h1>
+                <p>Transforming South Africa Through Innovation</p>
+                <p>From Port Elizabeth to the World, Building Tomorrow's Solutions Today</p>
+                <a href="#contact" class="btn">Start Your Journey</a>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2>Our Vision</h2>
+            <p>Based in the vibrant city of Port Elizabeth, South Africa, Sletcher Systems is more than just a technology company – we're a catalyst for change. Our mission is to harness the power of technology to transform local communities while delivering world-class solutions globally.</p>
+            <p>Founded by a passionate self-taught data scientist and machine learning engineer, we combine South African ingenuity with global expertise to create innovative solutions that make a real difference. Our unique understanding of both grassroots challenges and enterprise-level requirements allows us to bridge the digital divide and create meaningful impact.</p>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Solutions & Expertise</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Community Impact Projects</h3>
+                        <p>Specialized solutions for NGOs, local businesses, and community organizations, focusing on sustainable development and social impact. We believe in technology that empowers communities.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>AI & Machine Learning</h3>
+                        <p>Custom-trained LLMs, RAG systems, and AI solutions designed for African contexts and global applications. We make advanced technology accessible and relevant.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Innovation Lab</h3>
+                        <ul>
+                            <li>Custom software development</li>
+                            <li>AI-powered solutions</li>
+                            <li>Educational technology</li>
+                            <li>Local offline secure systems</li>
+                            <li>Data science consulting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="unique-value" class="container">
+            <h2>Our Commitment to Growth</h2>
+            <p>We believe in mutual success. Our innovative revenue-sharing model means we succeed when you succeed. We offer a 15% analytics-driven pricing model with a 2-week trial period, ensuring our solutions deliver real value before you invest.</p>
+            <p>Whether you're a local tour guide in the Eastern Cape or a global enterprise, we're here to transform your vision into reality, contributing to South Africa's digital future while serving clients worldwide.</p>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Let's Build Something Amazing</h2>
+            <p>Ready to be part of South Africa's digital transformation? Whether you're local or global, we're here to turn your ideas into reality.</p>
+            <form action="https://formspree.io/f/mpwzrvlo" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Tell us about your vision" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sletcher Systems. Proudly South African, Globally Connected.</p>
+    </footer>
+</body>
+</html>
