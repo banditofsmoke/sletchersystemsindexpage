@@ -197,6 +197,33 @@
             padding: 2rem 0;
         }
 
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background-color: var(--bg-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -214,6 +241,15 @@
             nav ul li {
                 margin: 10px 0;
             }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -224,6 +260,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -241,40 +278,98 @@
 
         <section id="about" class="container">
             <h2>Our Vision</h2>
-            <p>Based in the vibrant city of Port Elizabeth, South Africa, Sletcher Systems is more than just a technology company – we're a catalyst for change. Our mission is to harness the power of technology to transform local communities while delivering world-class solutions globally.</p>
+            <p>Based in the vibrant city of Port Elizabeth, South Africa, Sletcher Systems is more than just a technology company – we're a catalyst for change. Our mission is to harness the power of technology to transform local businesses and industries while delivering world-class solutions globally.</p>
             <p>Founded by a passionate self-taught data scientist and machine learning engineer, we combine South African ingenuity with global expertise to create innovative solutions that make a real difference. Our unique understanding of both grassroots challenges and enterprise-level requirements allows us to bridge the digital divide and create meaningful impact.</p>
+            <p>At Sletcher Systems, we believe in the power of technology to elevate businesses of all sizes. From small local enterprises to large corporations, we're committed to providing tailored solutions that drive growth, efficiency, and innovation.</p>
         </section>
 
         <section id="services" class="services">
             <div class="container">
                 <h2>Solutions & Expertise</h2>
+                <div class="tabs">
+                    <button class="tab active" onclick="openTab('grassroots')">Grassroots Impact</button>
+                    <button class="tab" onclick="openTab('ai')">AI & Machine Learning</button>
+                    <button class="tab" onclick="openTab('innovation')">Innovation Lab</button>
+                </div>
                 <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Community Impact Projects</h3>
-                        <p>Specialized solutions for NGOs, local businesses, and community organizations, focusing on sustainable development and social impact. We believe in technology that empowers communities.</p>
+                    <div id="grassroots" class="tab-content active">
+                        <div class="service-item">
+                            <h3>Grassroots Impact Projects</h3>
+                            <p>Specialized solutions for local businesses and enterprises, focusing on sustainable development and economic growth. We believe in technology that empowers businesses and drives local innovation.</p>
+                            <ul>
+                                <li>Digital transformation for small businesses</li>
+                                <li>E-commerce solutions for local enterprises</li>
+                                <li>Business-driven tech initiatives</li>
+                                <li>Skills development programs</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="service-item">
-                        <h3>AI & Machine Learning</h3>
-                        <p>Custom-trained LLMs, RAG systems, and AI solutions designed for African contexts and global applications. We make advanced technology accessible and relevant.</p>
+                    <div id="ai" class="tab-content">
+                        <div class="service-item">
+                            <h3>AI & Machine Learning</h3>
+                            <p>Custom-trained LLMs, RAG systems, and AI solutions designed for African contexts and global applications. We make advanced technology accessible and relevant to businesses of all sizes.</p>
+                            <ul>
+                                <li>Predictive analytics for business intelligence</li>
+                                <li>Natural language processing solutions</li>
+                                <li>Computer vision applications</li>
+                                <li>AI-driven business automation</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="service-item">
-                        <h3>Innovation Lab</h3>
-                        <ul>
-                            <li>Custom software development</li>
-                            <li>Website solutions</li>
-                            <li>Educational technology</li>
-                            <li>Local offline secure systems</li>
-                            <li>Data science consulting</li>
-                        </ul>
+                    <div id="innovation" class="tab-content">
+                        <div class="service-item">
+                            <h3>Innovation Lab</h3>
+                            <p>Our Innovation Lab is where cutting-edge ideas come to life. We specialize in creating proof of concept (PoC) solutions that address unique business challenges and opportunities.</p>
+                            <ul>
+                                <li>Rapid PoC development</li>
+                                <li>Custom software solutions</li>
+                                <li>Blockchain and IoT integration</li>
+                                <li>Data science consulting</li>
+                                <li>Enterprise system architecture</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="unique-value" class="container">
-            <h2>Our Commitment to Growth</h2>
-            <p>We believe in mutual success. Our innovative revenue-sharing model means we succeed when you succeed. We offer a 15% analytics-driven pricing model with a 2-week trial period, ensuring our solutions deliver real value before you invest.</p>
-            <p>Whether you're a local tour guide in the Eastern Cape or a global enterprise, we're here to transform your vision into reality, contributing to South Africa's digital future while serving clients worldwide.</p>
+        <section id="pricing" class="container">
+            <h2>Pricing & Project Scope</h2>
+            <div class="tabs">
+                <button class="tab active" onclick="openPricingTab('grassroots')">Grassroots</button>
+                <button class="tab" onclick="openPricingTab('enterprise')">Enterprise</button>
+                <button class="tab" onclick="openPricingTab('custom')">Custom Projects</button>
+            </div>
+            <div id="grassroots-pricing" class="tab-content active">
+                <h3>Grassroots Business Solutions</h3>
+                <p>For businesses looking to leverage technology for growth, we offer a unique 15% revenue-sharing model. This allows us to bring you under the Sletcher Systems umbrella, providing our expertise and resources to help your business thrive.</p>
+                <ul>
+                    <li>No upfront costs</li>
+                    <li>Full access to our technology stack</li>
+                    <li>Ongoing support and optimization</li>
+                    <li>2-week free trial period</li>
+                </ul>
+            </div>
+            <div id="enterprise-pricing" class="tab-content">
+                <h3>Enterprise Solutions</h3>
+                <p>For established businesses and complex projects, we offer transparent pricing based on project scope and requirements.</p>
+                <ul>
+                    <li>$30 per hour base rate</li>
+                    <li>Project durations from hours to 3 months</li>
+                    <li>Dedicated project management</li>
+                    <li>Comprehensive support package</li>
+                </ul>
+            </div>
+            <div id="custom-pricing" class="tab-content">
+                <h3>Custom Projects & PoC</h3>
+                <p>For businesses exploring innovative solutions or requiring proof of concept development, we offer flexible engagement models.</p>
+                <ul>
+                    <li>Rapid prototyping</li>
+                    <li>Flexible payment terms</li>
+                    <li>Technology consultation</li>
+                    <li>Scalable solutions</li>
+                </ul>
+            </div>
         </section>
 
         <section id="contact" class="container">
@@ -292,5 +387,35 @@
     <footer>
         <p>&copy; 2024 Sletcher Systems. Proudly South African, Globally Connected.</p>
     </footer>
+
+    <script>
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+
+        function openPricingTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName + "-pricing").style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>
