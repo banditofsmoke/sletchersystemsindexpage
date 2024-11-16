@@ -1,296 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sletcher Systems - Transforming South Africa Through Technology</title>
-    <style>
-        :root {
-            --primary-color: #009B77;  /* South African green */
-            --secondary-color: #222;
-            --accent-color: #FFB90F;   /* Warm African sun */
-            --text-color: #333;
-            --bg-color: #f8f8f8;
-        }
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+export default function Component() {
+  const [activeTab, setActiveTab] = useState('community')
+  const [activePricingTab, setActivePricingTab] = useState('grassroots')
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
+  const openTab = (tabName: string) => {
+    setActiveTab(tabName)
+  }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  const openPricingTab = (tabName: string) => {
+    setActivePricingTab(tabName)
+  }
 
-        header {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: flex-end;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                       url('https://source.unsplash.com/random/1600x900/?south-africa-technology');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, var(--bg-color), transparent);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        .services {
-            background-color: #fff;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-item {
-            background-color: var(--bg-color);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-item ul {
-            list-style-position: inside;
-            margin-top: 1rem;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            transition: border-color 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-
-        .contact-form textarea {
-            height: 150px;
-        }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: #fff;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav class="container">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+  return (
+    <div className="min-h-screen flex flex-col">
+      <header className="bg-secondary text-white py-4 fixed w-full top-0 z-50">
+        <nav className="container mx-auto px-4">
+          <ul className="flex justify-end space-x-6">
+            <li><a href="#home" className="hover:text-accent font-bold">Home</a></li>
+            <li><a href="#about" className="hover:text-accent font-bold">About</a></li>
+            <li><a href="#services" className="hover:text-accent font-bold">Services</a></li>
+            <li><a href="#pricing" className="hover:text-accent font-bold">Pricing</a></li>
+            <li><a href="#contact" className="hover:text-accent font-bold">Contact</a></li>
+          </ul>
         </nav>
-    </header>
+      </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Sletcher Systems</h1>
-                <p>Transforming South Africa Through Innovation</p>
-                <p>From Port Elizabeth to the World, Building Tomorrow's Solutions Today</p>
-                <a href="#contact" class="btn">Start Your Journey</a>
+      <main className="flex-grow">
+        <section id="home" className="h-screen flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-white text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 className="text-5xl font-bold mb-4 uppercase tracking-wide">Sletcher Systems</h1>
+            <p className="text-2xl mb-6">Transforming South Africa Through Innovation</p>
+            <p className="text-xl mb-8">From Port Elizabeth to the World, Building Tomorrow's Solutions Today</p>
+            <a href="#contact" className="bg-accent text-white px-8 py-3 rounded-full text-lg font-bold uppercase tracking-wide hover:bg-opacity-90 transition duration-300">Start Your Journey</a>
+          </div>
+        </section>
+
+        <section id="about" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-8 text-center">Our Vision</h2>
+            <div className="max-w-3xl mx-auto text-lg">
+              <p className="mb-4">Based in the vibrant city of Port Elizabeth, South Africa, Sletcher Systems is more than just a technology company – we're a catalyst for change. Our mission is to harness the power of technology to transform local businesses and industries while delivering world-class solutions globally.</p>
+              <p className="mb-4">Founded by a passionate self-taught data scientist and machine learning engineer, we combine South African ingenuity with global expertise to create innovative solutions that make a real difference. Our unique understanding of both grassroots challenges and enterprise-level requirements allows us to bridge the digital divide and create meaningful impact.</p>
+              <p>At Sletcher Systems, we believe in the power of technology to elevate businesses of all sizes. From small local enterprises to large corporations, we're committed to providing tailored solutions that drive growth, efficiency, and innovation.</p>
             </div>
+          </div>
         </section>
 
-        <section id="about" class="container">
-            <h2>Our Vision</h2>
-            <p>Based in the vibrant city of Port Elizabeth, South Africa, Sletcher Systems is more than just a technology company – we're a catalyst for change. Our mission is to harness the power of technology to transform local communities while delivering world-class solutions globally.</p>
-            <p>Founded by a passionate self-taught data scientist and machine learning engineer, we combine South African ingenuity with global expertise to create innovative solutions that make a real difference. Our unique understanding of both grassroots challenges and enterprise-level requirements allows us to bridge the digital divide and create meaningful impact.</p>
-        </section>
-
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Solutions & Expertise</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Community Impact Projects</h3>
-                        <p>Specialized solutions for NGOs, local businesses, and community organizations, focusing on sustainable development and social impact. We believe in technology that empowers communities.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>AI & Machine Learning</h3>
-                        <p>Custom-trained LLMs, RAG systems, and AI solutions designed for African contexts and global applications. We make advanced technology accessible and relevant.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Innovation Lab</h3>
-                        <ul>
-                            <li>Custom software development</li>
-                            <li>Website solutions</li>
-                            <li>Educational technology</li>
-                            <li>Local offline secure systems</li>
-                            <li>Data science consulting</li>
-                        </ul>
-                    </div>
+        <section id="services" className="py-20 bg-gray-100">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-12 text-center">Solutions & Expertise</h2>
+            <div className="flex justify-center mb-8">
+              <button
+                className={`px-6 py-2 rounded-l-full ${activeTab === 'community' ? 'bg-primary text-white' : 'bg-white'}`}
+                onClick={() => openTab('community')}
+              >
+                Grassroots Impact
+              </button>
+              <button
+                className={`px-6 py-2 ${activeTab === 'ai' ? 'bg-primary text-white' : 'bg-white'}`}
+                onClick={() => openTab('ai')}
+              >
+                AI & Machine Learning
+              </button>
+              <button
+                className={`px-6 py-2 rounded-r-full ${activeTab === 'innovation' ? 'bg-primary text-white' : 'bg-white'}`}
+                onClick={() => openTab('innovation')}
+              >
+                Innovation Lab
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {activeTab === 'community' && (
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">Grassroots Impact Projects</h3>
+                  <p>Specialized solutions for local businesses and community organizations, focusing on sustainable development and economic growth. We believe in technology that empowers communities and drives local innovation.</p>
+                  <ul className="mt-4 list-disc list-inside">
+                    <li>Digital transformation for small businesses</li>
+                    <li>E-commerce solutions for local artisans</li>
+                    <li>Community-driven tech initiatives</li>
+                    <li>Skills development programs</li>
+                  </ul>
                 </div>
+              )}
+              {activeTab === 'ai' && (
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">AI & Machine Learning</h3>
+                  <p>Custom-trained LLMs, RAG systems, and AI solutions designed for African contexts and global applications. We make advanced technology accessible and relevant to businesses of all sizes.</p>
+                  <ul className="mt-4 list-disc list-inside">
+                    <li>Predictive analytics for business intelligence</li>
+                    <li>Natural language processing for local languages</li>
+                    <li>Computer vision for agriculture and manufacturing</li>
+                    <li>AI-driven customer service solutions</li>
+                  </ul>
+                </div>
+              )}
+              {activeTab === 'innovation' && (
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">Innovation Lab</h3>
+                  <p>Our Innovation Lab is where cutting-edge ideas come to life. We specialize in creating custom solutions that address unique business challenges and opportunities.</p>
+                  <ul className="mt-4 list-disc list-inside">
+                    <li>Custom software development</li>
+                    <li>Proof of Concept (PoC) development</li>
+                    <li>Blockchain and IoT solutions</li>
+                    <li>AR/VR applications for training and marketing</li>
+                    <li>Data science consulting</li>
+                  </ul>
+                </div>
+              )}
             </div>
+          </div>
         </section>
 
-        <section id="unique-value" class="container">
-            <h2>Our Commitment to Growth</h2>
-            <p>We believe in mutual success. Our innovative revenue-sharing model means we succeed when you succeed. We offer a 15% analytics-driven pricing model with a 2-week trial period, ensuring our solutions deliver real value before you invest.</p>
-            <p>Whether you're a local tour guide in the Eastern Cape or a global enterprise, we're here to transform your vision into reality, contributing to South Africa's digital future while serving clients worldwide.</p>
+        <section id="pricing" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-12 text-center">Pricing & Project Scope</h2>
+            <div className="flex justify-center mb-8">
+              <button
+                className={`px-6 py-2 rounded-l-full ${activePricingTab === 'grassroots' ? 'bg-primary text-white' : 'bg-gray-200'}`}
+                onClick={() => openPricingTab('grassroots')}
+              >
+                Grassroots Businesses
+              </button>
+              <button
+                className={`px-6 py-2 ${activePricingTab === 'enterprise' ? 'bg-primary text-white' : 'bg-gray-200'}`}
+                onClick={() => openPricingTab('enterprise')}
+              >
+                Enterprise Solutions
+              </button>
+              <button
+                className={`px-6 py-2 rounded-r-full ${activePricingTab === 'custom' ? 'bg-primary text-white' : 'bg-gray-200'}`}
+                onClick={() => openPricingTab('custom')}
+              >
+                Custom Projects
+              </button>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              {activePricingTab === 'grassroots' && (
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Empowering Grassroots Businesses</h3>
+                  <p className="mb-4">For small businesses and startups looking to leverage technology for growth, we offer a unique 15% revenue-sharing model. This allows us to align our success with yours, providing our expertise and resources to help your business thrive.</p>
+                  <ul className="list-disc list-inside mb-4">
+                    <li>No upfront costs</li>
+                    <li>Access to cutting-edge technology</li>
+                    <li>Ongoing support and optimization</li>
+                    <li>2-week free trial to demonstrate value</li>
+                  </ul>
+                  <p>We succeed when you succeed, making this a true partnership for growth.</p>
+                </div>
+              )}
+              {activePricingTab === 'enterprise' && (
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Enterprise Solutions</h3>
+                  <p className="mb-4">For larger companies and complex projects, we offer a transparent pricing model based on the scope and requirements of your project.</p>
+                  <ul className="list-disc list-inside mb-4">
+                    <li>Base rate of $30 per hour for project work</li>
+                    <li>Comprehensive project planning and management</li>
+                    <li>Scalable solutions to grow with your business</li>
+                    <li>Dedicated support team</li>
+                  </ul>
+                  <p>Projects typically range from several weeks to 3 months, depending on complexity and requirements.</p>
+                </div>
+              )}
+              {activePricingTab === 'custom' && (
+                <div>
+                  <h3 className="text-2xl font-bold mb-4">Custom Projects & PoC Development</h3>
+                  <p className="mb-4">For businesses looking to explore innovative ideas or develop proof of concepts, we offer flexible pricing tailored to your specific needs.</p>
+                  <ul className="list-disc list-inside mb-4">
+                    <li>Rapid prototyping and PoC development</li>
+                    <li>Flexible engagement models</li>
+                    <li>Expertise across various technologies</li>
+                    <li>From concept to market-ready solutions</li>
+                  </ul>
+                  <p>We provide custom quotes after understanding your unique requirements and project goals.</p>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
 
-        <section id="contact" class="container">
-            <h2>Let's Build Something Amazing</h2>
-            <p>Ready to be part of South Africa's digital transformation? Whether you're local or global, we're here to turn your ideas into reality.</p>
-            <form action="https://formspree.io/f/mpwzrvlo" method="POST" class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Tell us about your vision" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
+        <section id="contact" className="py-20 bg-gray-100">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-8 text-center">Let's Build Something Amazing</h2>
+            <p className="text-center mb-8 max-w-2xl mx-auto">Ready to be part of South Africa's digital transformation? Whether you're a local startup or a global enterprise, we're here to turn your ideas into reality. Let's collaborate to create innovative solutions that drive your business forward.</p>
+            <form action="https://formspree.io/f/mpwzrvlo" method="POST" className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+              <div className="mb-4">
+                <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
+                <input type="text" id="name" name="name" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+                <input type="email" id="email" name="email" required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
+                <textarea id="message" name="message" rows={4} required className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+              </div>
+              <button type="submit" className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition duration-300">Send Message</button>
             </form>
+          </div>
         </section>
-    </main>
+      </main>
 
-    <footer>
-        <p>&copy; 2024 Sletcher Systems. Proudly South African, Globally Connected.</p>
-    </footer>
-</body>
-</html>
+      <footer className="bg-secondary text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p>&copy; 2024 Sletcher Systems. Proudly South African, Globally Connected.</p>
+          <p className="mt-2">Empowering businesses through innovative technology solutions.</p>
+          <div className="mt-4 flex justify-center space-x-4">
+            <a href="#" className="hover:text-accent">Privacy Policy</a>
+            <a href="#" className="hover:text-accent">Terms of Service</a>
+            <a href="#" className="hover:text-accent">Careers</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
