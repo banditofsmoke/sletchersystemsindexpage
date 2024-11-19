@@ -438,11 +438,11 @@
     <script>
         function openTab(tabName) {
             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
+            tabcontent = document.querySelectorAll("#services .tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            tablinks = document.getElementsByClassName("tab");
+            tablinks = document.querySelectorAll("#services .tab");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
@@ -452,11 +452,11 @@
 
         function openPricingTab(tabName) {
             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
+            tabcontent = document.querySelectorAll("#pricing .tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            tablinks = document.getElementsByClassName("tab");
+            tablinks = document.querySelectorAll("#pricing .tab");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
